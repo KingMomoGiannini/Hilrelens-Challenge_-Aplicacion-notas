@@ -1,0 +1,574 @@
+{
+	"info": {
+		"_postman_id": "dddd06c1-dfa2-4237-95e8-aca28a5f9fa9",
+		"name": "challenge API - Procedural Tests",
+		"description": "Colección Postman para probar el backend 'challenge' (Spring Boot).\nUsa variables de colección para base_url e IDs creados en runtime.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41314995"
+	},
+	"item": [
+		{
+			"name": "01 - Categories",
+			"item": [
+				{
+					"name": "Create Category: work",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status 201 Created\", function () { pm.response.to.have.status(201); });",
+									"const json = pm.response.json();",
+									"pm.collectionVariables.set(\"categoryId_work\", json.id);",
+									"console.log(\"Set categoryId_work =\", json.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"work\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category: personal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status 201 Created\", function () { pm.response.to.have.status(201); });",
+									"const json = pm.response.json();",
+									"pm.collectionVariables.set(\"categoryId_personal\", json.id);",
+									"console.log(\"Set categoryId_personal =\", json.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"personal\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category: ideas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status 201 Created\", function () { pm.response.to.have.status(201); });",
+									"const json = pm.response.json();",
+									"pm.collectionVariables.set(\"categoryId_ideas\", json.id);",
+									"console.log(\"Set categoryId_ideas =\", json.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"ideas\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02 - Notes",
+			"item": [
+				{
+					"name": "Create Note A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status 201 Created\", function () { pm.response.to.have.status(201); });",
+									"const json = pm.response.json();",
+									"pm.collectionVariables.set(\"noteIdA\", json.id);",
+									"console.log(\"Set noteIdA =\", json.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Comprar estaño\",\n  \"content\": \"y flux\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/notes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Note B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status 201 Created\", function () { pm.response.to.have.status(201); });",
+									"const json = pm.response.json();",
+									"pm.collectionVariables.set(\"noteIdB\", json.id);",
+									"console.log(\"Set noteIdB =\", json.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Plan de estudio Spring\",\n  \"content\": \"Repasar JPA, DTOs y tests\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/notes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Note C",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status 201 Created\", function () { pm.response.to.have.status(201); });",
+									"const json = pm.response.json();",
+									"pm.collectionVariables.set(\"noteIdC\", json.id);",
+									"console.log(\"Set noteIdC =\", json.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Ideas de proyectos\",\n  \"content\": \"Notas, ToDo, Pomodoro\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/notes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Active Notes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes?archived=false",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes"
+							],
+							"query": [
+								{
+									"key": "archived",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Note by ID (noteIdA)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes/{{noteIdA}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes",
+								"{{noteIdA}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Note B (PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Plan de estudio Spring\",\n  \"content\": \"Repasar JPA, DTOs, tests y CORS\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/notes/{{noteIdB}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes",
+								"{{noteIdB}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archive Note C (PATCH)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes/{{noteIdC}}/archive",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes",
+								"{{noteIdC}}",
+								"archive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Archived Notes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes?archived=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes"
+							],
+							"query": [
+								{
+									"key": "archived",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unarchive Note C (PATCH)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes/{{noteIdC}}/unarchive",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes",
+								"{{noteIdC}}",
+								"unarchive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Note C",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes/{{noteIdC}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes",
+								"{{noteIdC}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03 - Notes-Categories",
+			"item": [
+				{
+					"name": "Add 'work' to Note A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes/{{noteIdA}}/categories/{{categoryId_work}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes",
+								"{{noteIdA}}",
+								"categories",
+								"{{categoryId_work}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add 'personal' to Note A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes/{{noteIdA}}/categories/{{categoryId_personal}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes",
+								"{{noteIdA}}",
+								"categories",
+								"{{categoryId_personal}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add 'ideas' to Note B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes/{{noteIdB}}/categories/{{categoryId_ideas}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes",
+								"{{noteIdB}}",
+								"categories",
+								"{{categoryId_ideas}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Active Notes filtered by category=work",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes?archived=false&category=work",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes"
+							],
+							"query": [
+								{
+									"key": "archived",
+									"value": "false"
+								},
+								{
+									"key": "category",
+									"value": "work"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove 'personal' from Note A",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes/{{noteIdA}}/categories/{{categoryId_personal}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes",
+								"{{noteIdA}}",
+								"categories",
+								"{{categoryId_personal}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		},
+		{
+			"key": "noteIdA",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "noteIdB",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "noteIdC",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "categoryId_work",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "categoryId_personal",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "categoryId_ideas",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

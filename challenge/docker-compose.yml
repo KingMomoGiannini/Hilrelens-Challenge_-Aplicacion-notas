@@ -1,0 +1,48 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: challenge_db
+    environment:
+      MYSQL_ROOT_PASSWORD: "1614"
+      MYSQL_DATABASE: "notesdb"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ../database:/docker-entrypoint-initdb.d:ro   # 👈 acá
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-p1614" ]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    build: .
+    container_name: challenge_backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://db:3306/notesdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "1614"
+      CORS_ALLOWED_ORIGINS: "http://localhost:5173"
+      # Opcional JVM:
+      # JAVA_OPTS: "-Xms256m -Xmx512m"
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+  frontend:
+    build:
+      context: ../frontend          # 👈 relativo al compose dentro de challenge/
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: "http://localhost:8080/api"
+    container_name: challenge_frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"                   # http://localhost:5173
+    restart: unless-stopped
+
+volumes:
+  db_data:
