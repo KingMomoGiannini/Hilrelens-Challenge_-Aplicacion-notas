@@ -56,7 +56,8 @@ Desde el directorio **`challenge/`** (donde vive `docker-compose.yml`):
 
 **Windows (PowerShell):**
 ```powershell
-.un.ps1 rebuild
+.
+un.ps1 rebuild
 ```
 
 **macOS/Linux/Git Bash:**
@@ -194,11 +195,16 @@ Dentro de **`challenge/`**:
 
 **Windows — `run.ps1`**
 ```
-.un.ps1            # build + up
-.un.ps1 rebuild    # rebuild (sin caché) + up
-.un.ps1 logs       # ver logs
-.un.ps1 down       # bajar stack
-.un.ps1 reset      # bajar + borrar volúmenes (⚠ borra DB)
+.
+un.ps1            # build + up
+.
+un.ps1 rebuild    # rebuild (sin caché) + up
+.
+un.ps1 logs       # ver logs
+.
+un.ps1 down       # bajar stack
+.
+un.ps1 reset      # bajar + borrar volúmenes (⚠ borra DB)
 ```
 
 **Bash — `run.sh`**
